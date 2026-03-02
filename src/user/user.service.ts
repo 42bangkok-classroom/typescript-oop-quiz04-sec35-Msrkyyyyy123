@@ -5,4 +5,8 @@ export class UserService {
   test(): string[] {
     return [];
   }
+
+  findAll() : string[] {
+    return [];
+  }
 }
