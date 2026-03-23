@@ -6,4 +6,9 @@ export class UserService {
   test(): User[] {
     return [];
   }
+
+  findAll(): User[]{
+    return this.User.test();
+  } 
 }
+
