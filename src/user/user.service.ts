@@ -1,9 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { User } from './user.interface';
+import { IUser } from './user.interface';
 
 @Injectable()
 export class UserService {
-  test(): User[] {
+  private comments: IUser[] = [];
+  test(): IUser[] {
     return [];
+  }
+
+  findAll(): IUser[] {
+    return this.comments;
   }
 }
