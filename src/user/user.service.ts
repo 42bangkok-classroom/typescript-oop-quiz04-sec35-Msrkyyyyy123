@@ -7,8 +7,8 @@ export class UserService {
     return [];
   }
 
-  findAll(): User[]{
-    return this.User.test();
-  } 
+  // findAll(): User[]{
+  //   return this.User.test();
+  // } 
 }
 
