@@ -15,9 +15,9 @@ export class UserService {
     return JSON.parse(rawData) as IUser[];
   }
 
- findOne(id: string, fields?: string[]): any {
+  findOne(id: string, fields?: string[]): any {
     const users = this.findAll();
-    const user = users.find((u: IUser) => u.id === id); 
+    const user = users.find((u: IUser) => u.id === id);
 
     if (!user) {
       throw new NotFoundException('User not found');
