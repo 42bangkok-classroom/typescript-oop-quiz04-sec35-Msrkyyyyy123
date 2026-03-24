@@ -15,4 +15,10 @@ export class UserController {
   findAll(): IUser[] {
     return this.userService.findAll();
   }
+
+  // @Get(':id')
+  // findOne(): (id: string, fields?: string[]) {
+  //   const fieldArray = fields ? fields.split(',') : undefined;
+  //   return this.userService.findOne(id, fieldArray);
+  // }
 }

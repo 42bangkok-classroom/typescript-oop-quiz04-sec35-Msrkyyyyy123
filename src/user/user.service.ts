@@ -14,4 +14,10 @@ export class UserService {
     const rawData = fs.readFileSync(filePath, 'utf8');
     return JSON.parse(rawData) as IUser[];
   }
+
+  findOne(id: string, fields?: string[]) {
+    const findone = (c => c.id === id);
+    if (!findone) throw (`ไม่พบ user (id):`);
+    return findone;
+  }
 }
