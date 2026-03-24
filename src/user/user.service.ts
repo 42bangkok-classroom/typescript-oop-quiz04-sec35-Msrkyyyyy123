@@ -12,7 +12,8 @@ export class UserService {
   findAll(): IUser[] {
     const filePath = path.join(process.cwd(), 'data', 'users.json');
     const rawData = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(rawData) as IUser[];
+    const parsedData: unknown = JSON.parse(rawData);
+    return parsedData as IUser[];
   }
 
   findOne(id: string, fields?: string[]): any {
@@ -27,10 +28,11 @@ export class UserService {
       return user;
     }
 
-    const result = {};
+    const result: Record<string, any> = {};
+
     fields.forEach((f) => {
-      if (user[f] !== undefined) {
-        result[f] = user[f];
+      if ((user as any)[f] !== undefined) {
+        result[f] = (user as any)[f];
       }
     });
     return result;
