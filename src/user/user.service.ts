@@ -26,9 +26,7 @@ export class UserService {
 
     if (fields === undefined || fields.length === 0) {
       return user;
-    }
-
-    if (fields === undefined) {
+    } else if (fields === undefined) {
       return [];
     }
 
