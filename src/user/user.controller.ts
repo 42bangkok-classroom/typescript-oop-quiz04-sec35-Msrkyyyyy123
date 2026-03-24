@@ -4,15 +4,15 @@ import { IUser } from './user.interface';
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly UserService: UserService) {}
+  constructor(private readonly userService: UserService) {}
 
   @Get('test')
   test(): IUser[] {
-    return this.UserService.test();
+    return this.userService.test();
   }
 
   @Get()
   findAll(): IUser[] {
-    return this.UserService.findAll();
+    return this.userService.findAll();
   }
 }
