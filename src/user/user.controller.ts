@@ -1,11 +1,11 @@
-import { 
-  Controller, 
-  Get, 
-  Param, 
-  Post, 
-  Query, 
-  Body, 
-  UsePipes, 
+import {
+  Controller,
+  Get,
+  Param,
+  Post,
+  Query,
+  Body,
+  UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
 import { UserService } from './user.service';
