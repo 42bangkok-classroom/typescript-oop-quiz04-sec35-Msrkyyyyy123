@@ -1,4 +1,4 @@
-import { Injectable , NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { IUser } from './user.interface';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -17,7 +17,7 @@ export class UserService {
 
  findOne(id: string, fields?: string[]): any {
     const users = this.findAll();
-    const user = users.find((u) => u.id === id); 
+    const user = users.find((u: IUser) => u.id === id); 
 
     if (!user) {
       throw new NotFoundException('User not found');
