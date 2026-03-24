@@ -2,7 +2,7 @@ import { Controller, Get, Param, Post, Query, Body } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { IUser } from './user.interface';
-import { Validator, ValidatorConstraint } from 'class-validator';
+// import { Validator, ValidatorConstraint } from 'class-validator';
 
 @Controller('users')
 export class UserController {
