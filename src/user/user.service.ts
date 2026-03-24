@@ -29,9 +29,9 @@ export class UserService {
     }
 
     const result: Record<string, unknown> = {};
-    const userAsRecord = user as unknown as Record<string, unknown>; //อันนี้ที่กูเพิ่มเข้ามา มันคือไรวะ แม่งผ่านหมดได้ไงวะ
+    const userAsRecord = user as unknown as Record<string, unknown>; 
     fields.forEach((f) => {
-      if (userAsRecord[f] !== undefined) { //อันนี้ด้วย damn br๊oววว
+      if (userAsRecord[f] !== undefined) { 
         result[f] = userAsRecord[f];
       }
     });
