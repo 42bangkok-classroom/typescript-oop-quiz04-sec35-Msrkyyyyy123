@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable , NotFoundException } from '@nestjs/common';
 import { IUser } from './user.interface';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -15,9 +15,24 @@ export class UserService {
     return JSON.parse(rawData) as IUser[];
   }
 
-  findOne(id: string, fields?: string[]) {
-    const findone = (c => c.id === id);
-    if (!findone) throw (`ไม่พบ user (id):`);
-    return findone;
+ findOne(id: string, fields?: string[]): any {
+    const users = this.findAll();
+    const user = users.find((u) => u.id === id); 
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    if (!fields || fields.length === 0) {
+      return user;
+    }
+
+    const result = {};
+    fields.forEach((f) => {
+      if (user[f] !== undefined) {
+        result[f] = user[f];
+      }
+    });
+    return result;
   }
 }
