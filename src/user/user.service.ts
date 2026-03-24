@@ -24,14 +24,18 @@ export class UserService {
       throw new NotFoundException('User not found');
     }
 
-    if (fields === undefined) {
+    if (fields === undefined || fields.length === 0) {
       return user;
     }
 
+    // if (fields === undefined) {
+    //   return user;
+    // }
+
     const result: Record<string, unknown> = {};
-    const userAsRecord = user as unknown as Record<string, unknown>; 
+    const userAsRecord = user as unknown as Record<string, unknown>;
     fields.forEach((f) => {
-      if (userAsRecord[f] !== undefined) { 
+      if (userAsRecord[f] !== undefined) {
         result[f] = userAsRecord[f];
       }
     });
