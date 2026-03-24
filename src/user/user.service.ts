@@ -26,10 +26,8 @@ export class UserService {
 
     if (fields === undefined || fields.length === 0) {
       return user;
-    } else if (fields === undefined) {
-      return [];
-    }
-
+    } 
+    
     const result: Record<string, unknown> = {};
     const userAsRecord = user as unknown as Record<string, unknown>;
     fields.forEach((f) => {
