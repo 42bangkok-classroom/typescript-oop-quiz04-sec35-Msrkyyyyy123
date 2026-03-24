@@ -28,9 +28,9 @@ export class UserService {
       return user;
     }
 
-    // if (fields === undefined) {
-    //   return user;
-    // }
+    if (fields === undefined) {
+      return [];
+    }
 
     const result: Record<string, unknown> = {};
     const userAsRecord = user as unknown as Record<string, unknown>;
