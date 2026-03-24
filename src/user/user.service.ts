@@ -24,14 +24,18 @@ export class UserService {
       throw new NotFoundException('User not found');
     }
 
-    if (!fields || fields.length === 0) {
+    // if (!fields || fields.length === 0) {
+    //   return user;
+    // }
+
+    if (fields === undefined) {
       return user;
     }
 
     const result: Record<string, unknown> = {};
-    const userAsRecord = user as unknown as Record<string, unknown>;
+    const userAsRecord = user as unknown as Record<string, unknown>; //อันนี้ที่กูเพิ่มเข้ามา มันคือไรวะ แม่งผ่านหมดได้ไงวะ
     fields.forEach((f) => {
-      if (userAsRecord[f] !== undefined) {
+      if (userAsRecord[f] !== undefined) { //อันนี้ด้วย damn br๊oววว
         result[f] = userAsRecord[f];
       }
     });
