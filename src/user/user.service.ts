@@ -28,11 +28,11 @@ export class UserService {
       return user;
     }
 
-    const result: Record<string, any> = {};
-
+    const result: Record<string, unknown> = {};
+    const userAsRecord = user as unknown as Record<string, unknown>;
     fields.forEach((f) => {
-      if ((user as any)[f] !== undefined) {
-        result[f] = (user as any)[f];
+      if (userAsRecord[f] !== undefined) {
+        result[f] = userAsRecord[f];
       }
     });
     return result;
