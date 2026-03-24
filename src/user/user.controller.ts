@@ -1,6 +1,8 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param, Post, Query, Body } from '@nestjs/common';
 import { UserService } from './user.service';
+import { CreateUserDto } from './dto/create-user.dto';
 import { IUser } from './user.interface';
+import { Validator, ValidatorConstraint } from 'class-validator';
 
 @Controller('users')
 export class UserController {
@@ -20,5 +22,10 @@ export class UserController {
   findOne(@Param('id') id: string, @Query('fields') fields?: string): any {
     const fieldArray = fields ? fields.split(',') : undefined;
     return this.userService.findOne(id, fieldArray);
+  }
+
+  @Post()
+  create(@Body() createUserDto: CreateUserDto) {
+    return this.userService.create(createUserDto);
   }
 }
