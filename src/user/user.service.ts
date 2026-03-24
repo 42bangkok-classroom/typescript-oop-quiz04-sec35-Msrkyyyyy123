@@ -24,10 +24,6 @@ export class UserService {
       throw new NotFoundException('User not found');
     }
 
-    // if (!fields || fields.length === 0) {
-    //   return user;
-    // }
-
     if (fields === undefined) {
       return user;
     }
