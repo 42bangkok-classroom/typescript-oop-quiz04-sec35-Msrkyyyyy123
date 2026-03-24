@@ -15,24 +15,24 @@ export class UserService {
     return JSON.parse(rawData) as IUser[];
   }
 
-//  findOne(id: string, fields?: string[]): any {
-//     const users = this.findAll();
-//     const user = users.find((u) => u.id === id); 
+ findOne(id: string, fields?: string[]): any {
+    const users = this.findAll();
+    const user = users.find((u) => u.id === id); 
 
-//     if (!user) {
-//       throw new NotFoundException('User not found');
-//     }
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
 
-//     if (!fields || fields.length === 0) {
-//       return user;
-//     }
+    if (!fields || fields.length === 0) {
+      return user;
+    }
 
-//     const result = {};
-//     fields.forEach((f) => {
-//       if (user[f] !== undefined) {
-//         result[f] = user[f];
-//       }
-//     });
-//     return result;
-//   }
+    const result = {};
+    fields.forEach((f) => {
+      if (user[f] !== undefined) {
+        result[f] = user[f];
+      }
+    });
+    return result;
+  }
 }
